@@ -1,0 +1,191 @@
+
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const isActive = (path) => location.pathname === path;
+
+  // Variants for individual list items
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 10 } }
+  };
+
+  // Variants for the mobile menu container
+  const sideNavVariants = {
+    closed: { opacity: 0, height: 0, transition: { duration: 0.3 } },
+    open: { opacity: 1, height: "auto", transition: { duration: 0.3, staggerChildren: 0.1 } }
+  };
+
+  const menuBackgroundVariants = {
+    closed: { opacity: 0 },
+    open: { opacity: 1 }
+  };
+
+  return (
+    <motion.nav
+      className="fixed top-0 left-0 right-0 py-3 bg-gradient-to-r from-gray-900 to-gray-800 bg-opacity-70 backdrop-blur-md shadow-lg z-50 transition-all duration-300 ease-in-out"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="container mx-auto flex items-center justify-between px-4">
+        
+        {/* Logo and Brand Name with Enhanced Hover Animation */}
+        <Link className="flex items-center" to="/">
+          <motion.img
+            src="/Images/deepak_meena.jpg"
+            alt="Deepak Meena"
+            width="40"
+            height="40"
+            className="rounded-full border-2 border-[#8a2be2] mr-2 shadow-sm"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          />
+          <motion.span
+            className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-[#8a2be2] to-[#00ffff] hover:from-[#00ffff] hover:to-[#8a2be2] transition-colors duration-500"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            Deepak Meena
+          </motion.span>
+        </Link>
+
+        {/* Mobile Toggle Button with SVG for better animation control */}
+        <motion.button
+          className="lg:hidden p-2 text-white border-none focus:outline-none z-[100]"
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation"
+          whileTap={{ scale: 0.95 }}
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
+          </svg>
+        </motion.button>
+
+        {/* Navbar Links (Desktop) */}
+        <div className="hidden lg:flex lg:items-center lg:w-auto" id="navbarNav">
+          <motion.ul
+            className="flex flex-col lg:flex-row lg:space-x-8 items-center"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+          >
+            {navItems.map((item, index) => (
+              <motion.li
+                key={item.name}
+                className="relative py-2 lg:py-0 w-full lg:w-auto"
+                variants={itemVariants}
+                whileHover={{ translateY: -3, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  className={`relative text-white hover:text-[#00ffff] transition-colors duration-300 font-medium pb-1 group ${isActive(item.path) ? 'active-link' : ''}`}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#00ffff] transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </motion.li>
+            ))}
+            <motion.li
+              className="mt-4 lg:mt-0 lg:ml-8"
+              variants={itemVariants}
+              whileHover={{ translateY: -3, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link to="/resume.pdf" target="_blank" className="relative inline-block px-5 py-2.5 font-medium rounded-full text-[#8a2be2] bg-transparent border-2 border-[#8a2be2] overflow-hidden group hover:bg-[#8a2be2] transition-colors duration-300 active:ring-2 active:ring-white" rel="noopener noreferrer">
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Resume</span>
+                <div className="absolute inset-0 bg-[#8a2be2] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+              </Link>
+            </motion.li>
+          </motion.ul>
+        </div>
+
+        {/* Mobile Navigation Menu (Animated) */}
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              {/* Backdrop Overlay */}
+              <motion.div
+                className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+                variants={menuBackgroundVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                onClick={() => setIsOpen(false)}
+              />
+
+              {/* Mobile Menu */}
+              <motion.div
+                className="lg:hidden fixed top-0 left-0 h-full w-64 bg-gray-900 bg-opacity-95 backdrop-blur-xl shadow-lg pt-20 z-50"
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              >
+                <motion.ul
+                  className="flex flex-col items-center space-y-4 px-4"
+                  initial="hidden"
+                  animate="visible"
+                  variants={sideNavVariants}
+                >
+                  {navItems.map((item, index) => (
+                    <motion.li
+                      key={item.name}
+                      className="w-full text-center"
+                      variants={itemVariants}
+                    >
+                      <Link
+                        className={`block w-full px-4 py-3 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300 ${isActive(item.path) ? 'active-link-mobile' : ''}`}
+                        to={item.path}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                  <motion.li className="w-full text-center mt-6" variants={itemVariants}>
+                    <Link
+                      to="/resume.pdf"
+                      target="_blank"
+                      className="inline-block w-full px-5 py-3 font-medium rounded-full text-[#8a2be2] bg-transparent border-2 border-[#8a2be2] overflow-hidden group hover:bg-[#8a2be2] transition-colors duration-300"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Resume</span>
+                      <div className="absolute inset-0 bg-[#8a2be2] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+                    </Link>
+                  </motion.li>
+                </motion.ul>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.nav>
+  );
+};
+
+export default Navbar;
+
