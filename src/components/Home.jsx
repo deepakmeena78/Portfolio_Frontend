@@ -3,21 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Code, Palette, Eye, Mail } from 'lucide-react';
 
-// Custom hook to handle the typing animation, replacing the external library
 const useTypingEffect = (texts, speed = 50, delay = 2000) => {
   const [currentText, setCurrentText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // If we are deleting and the text is gone, move to the next text
     if (isDeleting && currentText === '') {
       setIsDeleting(false);
       setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
       return;
     }
 
-    // If we are typing and the current text is complete, start deleting
     if (!isDeleting && currentText === texts[textIndex]) {
       setTimeout(() => setIsDeleting(true), delay);
       return;

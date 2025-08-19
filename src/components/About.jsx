@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { User, MapPin, Mail, Phone, Briefcase, GraduationCap, Code, Palette, Lightbulb, Users as Team, Download } from 'lucide-react';
 
 const About = () => {
-  // Data for personal information, education, and interests
   const personalInfo = [
     { label: 'Name', value: 'DEEPAK MEENA', icon: <User size={20} /> },
     { label: 'Age', value: '21 Years', icon: <GraduationCap size={20} /> },
@@ -41,7 +40,6 @@ const About = () => {
     { icon: <Team size={24} />, title: 'Collaboration', description: 'Working in teams' }
   ];
 
-  // Framer Motion variants for staggered animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

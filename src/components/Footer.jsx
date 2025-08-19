@@ -7,103 +7,58 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
-  // Data for footer links and social icons
   const footerLinks = {
     'Quick Links': [
-      { name: 'Home', path: '#' },
-      { name: 'About', path: '#' },
-      { name: 'Skills', path: '#' },
-      { name: 'Projects', path: '#' },
-      { name: 'Experience', path: '#' },
-      { name: 'Contact', path: '#' }
+      { name: 'Home', path: '/' },
+      { name: 'About', path: '/about' },
+      { name: 'Skills', path: '/skills' },
+      { name: 'Projects', path: '/projects' },
+      { name: 'Experience', path: '/experience' },
+      { name: 'Contact', path: '/contact' }
+
     ],
     'Services': [
-      { name: 'Web Development', path: '#' },
-      { name: 'Mobile Development', path: '#' },
-      { name: 'UI/UX Design', path: '#' },
-      { name: 'Consulting', path: '#' },
-      { name: 'Training', path: '#' }
+      { name: 'Web Development', path: '/skills' },
+      { name: 'Mobile Development', path: '/skills' },
+      { name: 'UI/UX Design', path: '/skills' },
+
     ],
     'Resources': [
-      { name: 'Blog', path: '#' },
-      { name: 'Documentation', path: '#' },
-      { name: 'Tutorials', path: '#' },
-      { name: 'Case Studies', path: '#' },
-      { name: 'Free Tools', path: '#' }
+      { name: 'Blog', path: '/about' },
+      { name: 'Documentation', path: '/about' },
+      { name: 'Tutorials', path: '/about' },
+      { name: 'Case Studies', path: '/about' },
+      { name: 'Free Tools', path: '/skills' }
     ]
   };
 
   const socialLinks = [
-    {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: 'https://linkedin.com/in/yourusername',
-      color: 'hover:text-blue-500'
-    },
-    {
-      name: 'GitHub',
-      icon: Github,
-      url: 'https://github.com/yourusername',
-      color: 'hover:text-gray-900'
-    },
-    {
-      name: 'Twitter',
-      icon: Twitter,
-      url: 'https://twitter.com/yourusername',
-      color: 'hover:text-blue-400'
-    },
-    {
-      name: 'Instagram',
-      icon: Instagram,
-      url: 'https://instagram.com/yourusername',
-      color: 'hover:text-pink-500'
-    },
-    {
-      name: 'YouTube',
-      icon: Youtube,
-      url: 'https://youtube.com/@yourusername',
-      color: 'hover:text-red-600'
-    }
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/deepak-meena', color: 'hover:text-blue-500' },
+    { name: 'GitHub', icon: Github, url: 'https://github.com/deepakmeena78', color: 'hover:text-gray-900' },
+    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/ankit____meena_', color: 'hover:text-blue-400' },
+    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/ankit____meena_', color: 'hover:text-pink-500' },
+    { name: 'YouTube', icon: Youtube, url: 'https://youtube.com/', color: 'hover:text-red-600' }
   ];
 
-  // Animation variants for Framer Motion
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-  
-  // Handle scroll to top button visibility
+  const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollBtn(true);
-      } else {
-        setShowScrollBtn(false);
-      }
-    };
+    const handleScroll = () => setShowScrollBtn(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <footer className="relative bg-gray-950 text-white font-sans overflow-hidden">
-      {/* Background shape/gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-tr from-gray-900 via-gray-950 to-indigo-900 opacity-70"></div>
-      
+
       <div className="relative z-10 px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
@@ -121,16 +76,10 @@ const Footer = () => {
             >
               Your Name
             </motion.h3>
-            <motion.p
-              className="text-gray-400 mb-6 max-w-sm"
-              variants={itemVariants}
-            >
+            <motion.p className="text-gray-400 mb-6 max-w-sm" variants={itemVariants}>
               A passionate Full Stack Developer dedicated to creating innovative digital solutions that make a real impact in the world.
             </motion.p>
-            <motion.div
-              className="flex gap-4"
-              variants={itemVariants}
-            >
+            <motion.div className="flex gap-4" variants={itemVariants}>
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -158,22 +107,13 @@ const Footer = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <motion.h6
-                className="text-lg font-semibold text-white mb-4"
-                variants={itemVariants}
-              >
+              <motion.h6 className="text-lg font-semibold text-white mb-4" variants={itemVariants}>
                 {category}
               </motion.h6>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <motion.li
-                    key={link.name}
-                    variants={itemVariants}
-                  >
-                    <a
-                      href={link.path}
-                      className="text-gray-400 hover:text-white transition-colors duration-300"
-                    >
+                  <motion.li key={link.name} variants={itemVariants}>
+                    <a href={link.path} className="text-gray-400 hover:text-white transition-colors duration-300">
                       {link.name}
                     </a>
                   </motion.li>
@@ -190,28 +130,24 @@ const Footer = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.h6
-              className="text-lg font-semibold text-white mb-4"
-              variants={itemVariants}
-            >
+            <motion.h6 className="text-lg font-semibold text-white mb-4" variants={itemVariants}>
               Contact Info
             </motion.h6>
             <ul className="space-y-3 text-gray-400">
               <motion.li variants={itemVariants} className="flex items-center gap-2">
                 <Mail size={18} className="text-teal-400" />
-                <span>your.email@example.com</span>
+                <span>deepakmeenaa78@gmail.com.com</span>
               </motion.li>
               <motion.li variants={itemVariants} className="flex items-center gap-2">
                 <Phone size={18} className="text-teal-400" />
-                <span>+1 (234) 567-8900</span>
+                <span>+91 62605 76040 </span>
               </motion.li>
               <motion.li variants={itemVariants} className="flex items-center gap-2">
                 <MapPin size={18} className="text-teal-400" />
-                <span>San Francisco, CA</span>
+                <span>indore madhya pradesh india</span>
               </motion.li>
             </ul>
           </motion.div>
-
         </div>
 
         {/* Bottom Section */}
@@ -222,13 +158,9 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-gray-500 text-center sm:text-left">
-            &copy; {currentYear} Your Name. All rights reserved.
-          </p>
-          <div className="flex gap-4 text-center sm:text-right">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Privacy Policy</a>
+          <p className="text-gray-500 text-center sm:text-left">&copy; {currentYear} Deepak Meena. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-center sm:text-right">
             <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Terms of Service</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Cookie Policy</a>
           </div>
         </motion.div>
 
