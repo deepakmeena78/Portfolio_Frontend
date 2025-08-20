@@ -25,22 +25,17 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // Simulate API call and form submission
     try {
-      // In a real application, you would make a fetch or API call here
       await new Promise(resolve => setTimeout(resolve, 2500));
       
-      // Simulate success
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       
     } catch (error) {
-      // Simulate failure
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
       
-      // Reset status after a few seconds
       setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
@@ -48,38 +43,37 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Location',
-      value: 'San Francisco, CA',
-      link: 'https://maps.google.com'
+      title: 'indore,madhya pradesh,india',
+      value: 'indore,madhya pradesh,india',
+      link: 'https://maps.google.com/'
     },
     {
       icon: Mail,
-      title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      title: 'deepakmeenaa78@gmail.com',
+      value: 'deepakmeenaa78@gmail.com',
+      link: 'mailto:deepakmeenaa78@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (234) 567-8900',
-      link: 'tel:+12345678900'
+      value: '+91 62605-76040',
+      link: 'tel:+916260576040'
     },
     {
       icon: Clock,
       title: 'Available',
-      value: 'Mon - Fri, 9AM - 6PM PST',
+      value: 'Mon - Fri, 9AM - 10PM PST',
       link: null
     }
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/yourusername', color: '#0077B5' },
-    { name: 'GitHub', icon: Github, url: 'https://github.com/yourusername', color: '#333' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/yourusername', color: '#1DA1F2' },
-    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/yourusername', color: '#E4405F' }
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/deepak-meena', color: '#0077B5' },
+    { name: 'GitHub', icon: Github, url: 'https://github.com/deepakmeena78', color: '#333' },
+    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/ankit____meena_', color: '#1DA1F2' },
+    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/ankit____meena_', color: '#E4405F' }
   ];
 
-  // Framer Motion variants for staggered entry
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -104,7 +98,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative bg-gray-950 text-white py-16 md:py-24 font-inter overflow-hidden">
-      {/* Unique glowing orb background animation */}
       <style>{`
         .glowing-orb {
           filter: blur(80px);
@@ -152,7 +145,6 @@ const Contact = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Title and Subtitle with Animation */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -380,7 +372,7 @@ const Contact = () => {
             <h3 className="text-3xl font-bold text-gray-200 mb-4">Let's Work Together</h3>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               I'm currently available for freelance work and full-time opportunities. 
-              Whether you have a project in mind or just want to chat, I'd love to hear from you.
+              Whether you have a project in mind or just want to chat, I'd love to hear from you
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Background from "./Background";
 
 const Experience = () => {
   const workExperience = [
@@ -138,15 +137,6 @@ const Experience = () => {
               }`}
               variants={itemVariants}
             >
-              {/* Timeline Dot */}
-              <motion.div
-                className="absolute top-2 left-1/2 transform -translate-x-1/2 md:top-0 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg text-white text-xl cursor-pointer"
-                variants={timelineVariants}
-                whileHover={{ scale: 1.3 }}
-              >
-                <i className={`${job.logo}`}></i>
-              </motion.div>
-
               {/* Card */}
               <motion.div
                 className="mt-6 md:mt-0 bg-gradient-to-br from-white via-gray-100 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-3xl shadow-2xl p-6 hover:-translate-y-5 hover:shadow-2xl hover:shadow-indigo-300/50 transition-all duration-500"
@@ -155,7 +145,7 @@ const Experience = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                {/* Position & Company */}
+                {" "}
                 <motion.div
                   initial={{ x: -40, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -170,8 +160,6 @@ const Experience = () => {
                     {job.company}
                   </h5>
                 </motion.div>
-
-                {/* Duration & Location */}
                 <motion.div
                   className="flex flex-col md:flex-row md:gap-6 mb-4"
                   initial={{ x: 40, opacity: 0 }}
@@ -187,8 +175,6 @@ const Experience = () => {
                     {job.location}
                   </div>
                 </motion.div>
-
-                {/* Description */}
                 <motion.p
                   className="text-gray-700 dark:text-gray-300 mb-5 leading-relaxed flex items-center gap-2"
                   initial={{ opacity: 0 }}
@@ -198,8 +184,6 @@ const Experience = () => {
                   <i className="bi bi-journal-text text-indigo-500"></i>{" "}
                   {job.description}
                 </motion.p>
-
-                {/* Achievements */}
                 <motion.div
                   className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 mb-5 shadow-inner hover:shadow-lg transition-shadow duration-300"
                   initial={{ scale: 0.95, opacity: 0 }}
@@ -222,8 +206,6 @@ const Experience = () => {
                     ))}
                   </ul>
                 </motion.div>
-
-                {/* Technologies */}
                 <motion.div
                   className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 shadow-inner hover:shadow-lg transition-shadow duration-300"
                   initial={{ scale: 0.95, opacity: 0 }}
@@ -231,17 +213,15 @@ const Experience = () => {
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   <h6 className="font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-                    <i className="bi bi-tools text-indigo-500"></i>{" "}
                     Technologies:
                   </h6>
                   <div className="flex flex-wrap gap-3">
                     {job.technologies.map((tech, idx) => (
                       <motion.span
                         key={idx}
-                        className="px-4 py-2 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-700 dark:via-purple-700 dark:to-pink-700 text-gray-900 dark:text-white rounded-2xl text-sm font-medium hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer flex items-center gap-1"
+                        className="px-4 py-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white rounded-2xl text-sm font-medium hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer flex items-center gap-1"
                         whileHover={{ rotate: [0, 5, -5, 0], scale: 1.15 }}
                       >
-                        <i className="bi bi-star-fill text-yellow-400"></i>{" "}
                         {tech}
                       </motion.span>
                     ))}
