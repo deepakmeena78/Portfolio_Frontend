@@ -1,86 +1,80 @@
 import { motion } from "framer-motion";
 
 const Experience = () => {
-  const workExperience = [
-    {
-      id: 1,
-      company: "Tech Solutions Inc.",
-      position: "Senior Full Stack Developer",
-      duration: "Jan 2023 - Present",
-      location: "San Francisco, CA",
-      description:
-        "Leading development of enterprise web applications using modern technologies. Mentoring junior developers and implementing best practices.",
-      achievements: [
-        "Led a team of 5 developers in building a customer portal that increased user engagement by 40%",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Optimized database queries improving application performance by 35%",
-        "Introduced code review process improving code quality and reducing bugs by 25%",
-      ],
-      technologies: [
-        "React",
-        "Node.js",
-        "PostgreSQL",
-        "AWS",
-        "Docker",
-        "Kubernetes",
-      ],
-      logo: "bi-building",
-    },
-    {
-      id: 2,
-      company: "Digital Innovations Ltd.",
-      position: "Full Stack Developer",
-      duration: "Mar 2021 - Dec 2022",
-      location: "New York, NY",
-      description:
-        "Developed and maintained multiple web applications for clients across various industries. Collaborated with design and product teams.",
-      achievements: [
-        "Built 8 client websites with 100% client satisfaction rate",
-        "Reduced page load times by 45% through optimization techniques",
-        "Implemented responsive design ensuring cross-device compatibility",
-        "Developed reusable component library used across multiple projects",
-      ],
-      technologies: ["Vue.js", "Express.js", "MongoDB", "Firebase", "Heroku"],
-      logo: "bi-laptop",
-    },
-    {
-      id: 3,
-      company: "Startup Ventures",
-      position: "Frontend Developer",
-      duration: "Jun 2020 - Feb 2021",
-      location: "Austin, TX",
-      description:
-        "Worked on early-stage startup products, focusing on user experience and rapid prototyping. Contributed to product strategy and user research.",
-      achievements: [
-        "Developed MVP for mobile app reaching 10,000+ users in 6 months",
-        "Created design system improving development speed by 30%",
-        "Conducted user testing sessions and implemented feedback",
-        "Collaborated with founders on product roadmap and feature prioritization",
-      ],
-      technologies: ["React Native", "Redux", "Firebase", "Figma", "Jest"],
-      logo: "bi-rocket",
-    },
-  ];
+const workExperience = [
+  {
+    id: 1,
+    company: "Freelancing",
+    position: "Full Stack Developer",
+    duration: "June 2025 - Present",
+    location: "Indore, Madhya Pradesh, India",
+    description:
+      "Designing and developing scalable full-stack web applications for clients. Managing end-to-end project lifecycles including planning, development, deployment, and maintenance.",
+    achievements: [
+      "Delivered 5+ full-stack projects with 100% on-time completion.",
+      "Implemented CI/CD pipelines reducing deployment time by 60%.",
+      "Optimized backend APIs and database queries improving performance by 35%.",
+      "Mentored junior developers and introduced a structured code review process, improving quality and reducing bugs.",
+    ],
+    technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Next.js", "MongoDB"],
+    logo: "bi-building",
+  },
+  {
+    id: 2,
+    company: "Codes for Tomorrow",
+    position: "Node.js Developer",
+    duration: "Mar 2025 - June 2025",
+    location: "Indore, Madhya Pradesh, India",
+    description:
+      "Built and maintained backend services and REST APIs using Node.js and Express. Worked closely with frontend teams to ensure seamless integration and performance.",
+    achievements: [
+      "Developed 8 client-facing web applications with high client satisfaction.",
+      "Improved API performance and reduced page load times by 45% through caching and query optimization.",
+      "Implemented authentication, authorization, and role-based access control across applications.",
+      "Built reusable backend modules improving development speed across projects.",
+    ],
+    technologies: ["Node.js", "Express.js", "MongoDB", "Firebase", "PostgreSQL"],
+    logo: "bi-laptop",
+  },
+  {
+    id: 3,
+    company: "Infobeans Foundation",
+    position: "Trainee Developer",
+    duration: "Mar 2024 - June 2025",
+    location: "Indore, Madhya Pradesh, India",
+    description:
+      "Worked as a trainee on multiple live projects, focusing on web development fundamentals and modern frameworks. Assisted in building features and fixing bugs under senior developer guidance.",
+    achievements: [
+      "Contributed to building an MVP mobile/web app that reached 10,000+ users within 6 months.",
+      "Implemented responsive UI using React and Tailwind CSS for better user experience.",
+      "Collaborated with senior developers on code reviews and debugging sessions.",
+      "Learned and applied best practices in REST API development using Node.js and Express.",
+    ],
+    technologies: ["Java", "Node.js", "Express.js", "React.js", "HTML", "CSS", "Tailwind CSS"],
+    logo: "bi-rocket",
+  },
+];
+
 
   const certifications = [
     {
       name: "AWS Certified Developer Associate",
       issuer: "Amazon Web Services",
-      date: "December 2023",
+      date: "jan 2025",
       credentialId: "AWS-123456789",
       logo: "bi-cloud",
     },
     {
       name: "MongoDB Certified Developer",
       issuer: "MongoDB University",
-      date: "October 2023",
+      date: "april 2024",
       credentialId: "MDB-987654321",
       logo: "bi-database",
     },
     {
-      name: "React Developer Certification",
+      name: "MERN Stack Developer Certification",
       issuer: "Meta",
-      date: "August 2023",
+      date: "june 2025",
       credentialId: "META-456789123",
       logo: "bi-braces-asterisk",
     },
@@ -312,14 +306,7 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
         >
           <a
-            href="/resume.pdf"
-            download
-            className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2"
-          >
-            <i className="bi bi-download"></i> Download Resume
-          </a>
-          <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/deepak-meena/"
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-indigo-500 text-indigo-500 px-6 py-3 rounded-full font-semibold hover:bg-indigo-500 hover:text-white transition-colors flex items-center justify-center gap-2"

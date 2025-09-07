@@ -23,7 +23,7 @@ const useTypingEffect = (texts, speed = 50, delay = 2000) => {
     const timer = setTimeout(() => {
       setCurrentText((prev) => {
         const fullText = texts[textIndex];
-        return isDeleting 
+        return isDeleting
           ? fullText.substring(0, prev.length - 1)
           : fullText.substring(0, prev.length + 1);
       });
@@ -50,21 +50,21 @@ const Home = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950 text-white p-6 md:p-12 font-inter">
-      
+
       {/* Floating Background Shapes */}
       {/* A large violet circle with a more complex floating animation */}
       <motion.div
         className="absolute rounded-full bg-[#8a2be2] opacity-10 w-80 h-80 md:w-96 md:h-96"
         style={{ top: '10%', left: '-5%' }}
-        animate={{ 
+        animate={{
           scale: [1, 1.2, 1.1, 1],
           x: ['0%', '20%', '-10%', '0%'],
           y: ['0%', '30%', '-20%', '0%'],
           rotate: [0, 90, 180, 270, 360]
         }}
-        transition={{ 
+        transition={{
           duration: 20,
-          repeat: Infinity, 
+          repeat: Infinity,
           ease: "linear",
           repeatType: "reverse"
         }}
@@ -73,15 +73,15 @@ const Home = () => {
       <motion.div
         className="absolute rounded-full bg-[#00ffff] opacity-10 w-60 h-60 md:w-80 md:h-80"
         style={{ bottom: '5%', right: '-5%' }}
-        animate={{ 
+        animate={{
           scale: [1, 1.3, 1.1, 1],
           x: ['0%', '-25%', '15%', '0%'],
           y: ['0%', '-20%', '30%', '0%'],
           rotate: [360, 270, 180, 90, 0]
         }}
-        transition={{ 
+        transition={{
           duration: 25,
-          repeat: Infinity, 
+          repeat: Infinity,
           ease: "linear",
           repeatType: "reverse"
         }}
@@ -90,7 +90,7 @@ const Home = () => {
       {/* Main content container with a responsive flex layout */}
       <div className="container mx-auto z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-          
+
           {/* Left Side Content - Text and Buttons */}
           <div className="w-full lg:w-1/2 text-center lg:text-left mt-8 lg:mt-0">
             {/* Title with drop-in animation */}
@@ -139,9 +139,12 @@ const Home = () => {
               </motion.div>
               {/* Get In Touch Button */}
               <motion.div whileHover={{ scale: 1.05, y: -3 }}>
-                <button 
+                <button
                   className="px-6 py-3 rounded-full border-2 border-white text-white font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-300 shadow-xl"
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() =>
+                    window.location.href =
+                    "mailto:deepakmeenaa78@gmail.com?subject=Hello Deepak&body=I want to connect with you."
+                  }
                 >
                   <Mail className="inline-block mr-2 w-5 h-5" /> Get In Touch
                 </button>
@@ -190,7 +193,7 @@ const Home = () => {
               {/* Floating icon for 'Code' */}
               <motion.div
                 className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg"
-                animate={{ 
+                animate={{
                   y: [0, -15, 0],
                   x: [0, 10, -5, 0]
                 }}
@@ -202,7 +205,7 @@ const Home = () => {
               {/* Floating icon for 'Palette' */}
               <motion.div
                 className="absolute bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2 bg-white p-3 rounded-full shadow-lg"
-                animate={{ 
+                animate={{
                   y: [0, 15, 0],
                   x: [0, -10, 5, 0]
                 }}

@@ -5,28 +5,6 @@ import { Github, ExternalLink, Code, Globe, Layers } from 'lucide-react';
 const Projects = () => {
   const projectsData = [
     {
-      id: 1,
-      title: 'Easy Solution',
-      category: 'fullstack',
-      image: './Images/easy_solution.png',
-      description: 'A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, payment integration, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Html', 'Redux','Tailwind CSS', 'Express.js', 'Cloudinary'],
-      liveUrl: 'https://easy-solution-frontend.vercel.app/',
-      githubUrl: 'https://github.com/deepakmeena78/Easy_solution_frontend',
-      accentColor: '#6366F1'
-    },
-    {
-      id: 2,
-      title: 'Scrapify',
-      category: 'fullstack',
-      image: './Images/Scrapify.png',
-      description: 'A collaborative task management application with real-time updates, team collaboration, and progress tracking.',
-      technologies: ['Next.js', 'CSS', 'Tailwind CSS',' Node.js', 'Nest.js', 'MongoDB', 'Socket.io','Cloudinary'],
-      liveUrl: 'https://scrapify-livb.onrender.com/',
-      githubUrl: 'https://github.com/deepakmeena78/',
-      accentColor: '#06B6D4'
-    },
-    {
       id: 3,
       title: 'MST Blockchain',
       category: 'web',
@@ -47,6 +25,39 @@ const Projects = () => {
       liveUrl: 'http://Nullsolutions.in',
       githubUrl: 'https://github.com/deepakmeena78/Null-Solution',
       accentColor: '#F59E0B'
+    },
+    {
+      id: 5,
+      title: 'Video Uploader',
+      category: 'fullstack',
+      image: './Images/video_uploader.png',
+      description: 'A **Video Uploader App** that lets users upload, process, and share videos with progress tracking and secure storage',
+      technologies: ['Next.js', 'CSS', 'Tailwind CSS',' Node.js', 'Nest.js', 'MongoDB', 'Socket.io','Cloudinary'],
+      liveUrl: 'https://video-uploader-frontend-five.vercel.app/',
+      githubUrl: 'https://github.com/deepakmeena78/',
+      accentColor: '#06a4d4ff'
+    },
+    {
+      id: 1,
+      title: 'Easy Solution',
+      category: 'fullstack',
+      image: './Images/easy_solution.png',
+      description: 'A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, payment integration, and admin dashboard.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Html', 'Redux','Tailwind CSS', 'Express.js', 'Cloudinary'],
+      liveUrl: 'https://easy-solution-frontend.vercel.app/',
+      githubUrl: 'https://github.com/deepakmeena78/Easy_solution_frontend',
+      accentColor: '#6366F1'
+    },
+    {
+      id: 2,
+      title: 'Scrapify',
+      category: 'fullstack',
+      image: './Images/Scrapify.png',
+      description: 'A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, payment integration, and admin dashboard.',
+      technologies: ['Next.js', 'CSS', 'Tailwind CSS',' Node.js', 'Nest.js', 'MongoDB', 'Socket.io','Cloudinary'],
+      liveUrl: 'https://scrapify-livb.onrender.com/',
+      githubUrl: 'https://github.com/deepakmeena78/',
+      accentColor: '#06B6D4'
     },
   ];
 

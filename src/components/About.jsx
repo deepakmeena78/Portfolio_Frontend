@@ -271,7 +271,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <button className="inline-flex items-center px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-[#8a2be2] to-[#00ffff] hover:scale-105 transition-all duration-300 shadow-xl">
+          <button className="inline-flex items-center px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-[#8a2be2] to-[#00ffff] hover:scale-105 transition-all duration-300 shadow-xl cursor-not-allowed">
             <Download size={20} className="mr-2" />
             Download CV
           </button>
