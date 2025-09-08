@@ -74,7 +74,7 @@ const Footer = () => {
               className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-sky-500 mb-3"
               variants={itemVariants}
             >
-              Your Name
+              DEEPAK MEENA
             </motion.h3>
             <motion.p className="text-gray-400 mb-6 max-w-sm" variants={itemVariants}>
               A passionate Full Stack Developer dedicated to creating innovative digital solutions that make a real impact in the world.
